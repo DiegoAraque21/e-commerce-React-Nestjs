@@ -11,26 +11,30 @@ interface Props {
 function ProductCard({ product }: Props) {
   // function to add to cart
   return (
-    <div className="h-[500px] w-[300px] border rounded-lg shadow-lg flex flex-col items-center">
-      <div className="h-[40%] w-full mt-5 flex flex-col relative">
+    <div className="h-[350px] md:h-[380px] lg:h-[500px] w-[180px] sm:w-[220px] md:w-[180px] lg:w-[250px] xl:w-[300px] border rounded-lg shadow-lg flex flex-col items-center">
+      <div className="h-[30%] lg:h-[40%] w-full mt-5 flex flex-col">
         <img
           className="h-full w-[200px] object-contain self-center"
           src={product.image}
           alt={product.title}
         />
-        {/* rating */}
-        <div className="absolute top-0 right-0 self-end mr-3">
-          <StarIcon className="text-yellow-400" />
-          <p>{product.rating.rate}</p>
-        </div>
       </div>
       {/* info product and add to cart */}
-      <h3 className="text-md font-semibold mt-5 px-10">{product.title}</h3>
+      <div className="w-[80%] px-2">
+        <h3 className="text-md font-semibold mt-5 truncate">{product.title}</h3>
+      </div>
       <p className="text-gray-500 mt-5">${product.price}</p>
+      {/* rating */}
+      <div className="flex mt-5">
+        <p className="mr-2">Rating: </p>
+        <StarIcon className="text-yellow-400 mr-1" />
+        <p>{product.rating.rate}</p>
+      </div>
       <Button
         className="my-auto"
         variant="outlined"
         endIcon={<ShoppingCartIcon />}
+        color="success"
       >
         Add to cart
       </Button>

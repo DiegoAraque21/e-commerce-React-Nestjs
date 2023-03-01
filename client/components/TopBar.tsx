@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 function TopBar() {
   return (
-    <div className="bg-green-600 h-[80px] flex flex-row items-center text-white">
+    <div className="bg-[#357a38] h-[80px] flex flex-row items-center text-white">
       <Link href="/">
         <h1 className="pl-10 text-2xl font-bold">Diego's Shop</h1>
       </Link>
