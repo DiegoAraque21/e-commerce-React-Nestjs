@@ -7,7 +7,7 @@ interface Props {
 
 function Page({ children }: Props) {
   return (
-    <div className="min-h-screen w-[100vw]">
+    <div className="min-h-screen w-[100vw] ">
       <TopBar />
       {children}
     </div>

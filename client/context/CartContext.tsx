@@ -4,7 +4,7 @@ import { createContext, useReducer } from 'react';
 // Types
 
 interface Props {
-  children: JSX.Element;
+  children: JSX.Element[];
 }
 
 interface Action {

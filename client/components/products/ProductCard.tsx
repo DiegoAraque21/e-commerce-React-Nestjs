@@ -3,14 +3,14 @@ import { Product } from '../../types/product';
 import StarIcon from '@mui/icons-material/Star';
 import Button from '@mui/material/Button';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { useAddToCart } from '@/hooks/useAddToCart';
+import { useCart } from '@/hooks/useCart';
 
 interface Props {
   product: Product;
 }
 
 function ProductCard({ product }: Props) {
-  const { addElementToCart } = useAddToCart();
+  const { addElementToCart } = useCart();
 
   // function to add to cart
   const addToCartHandler = (product: Product) => {
