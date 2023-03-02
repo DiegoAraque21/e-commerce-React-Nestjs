@@ -30,17 +30,28 @@ export const CartReducer = (state: Cart, action: Action) => {
       };
     case 'INCREASE_QUANTITY':
       // find product in cart and increase quantity
-      const updatedCart = state.cart.map((item) => {
+      const increasedCart = state.cart.map((item) => {
         if (item.product.id === action.payload.id) {
           return { ...item, quantity: item.quantity + 1 };
         }
         return item;
       });
-      return { ...state, cart: updatedCart };
+      return { ...state, cart: increasedCart };
     case 'DECREASE_QUANTITY':
-      return { ...state, cart: action.payload };
+      // find product in cart and decrease quantity
+      const decreasedCart = state.cart.map((item) => {
+        if (item.product.id === action.payload.id) {
+          return { ...item, quantity: item.quantity - 1 };
+        }
+        return item;
+      });
+      return { ...state, cart: decreasedCart };
     case 'REMOVE_FROM_CART':
-      return { ...state, cart: action.payload };
+      // filter out the product from the cart
+      const filteredCart = state.cart.filter(
+        (item) => item.product.id !== action.payload.id
+      );
+      return { ...state, cart: filteredCart };
     default:
       return { ...state };
   }
