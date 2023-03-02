@@ -3,12 +3,20 @@ import { Product } from '../../types/product';
 import StarIcon from '@mui/icons-material/Star';
 import Button from '@mui/material/Button';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useAddToCart } from '@/hooks/useAddToCart';
 
 interface Props {
   product: Product;
 }
 
 function ProductCard({ product }: Props) {
+  const { addElementToCart } = useAddToCart();
+
+  // function to add to cart
+  const addToCartHandler = (product: Product) => {
+    addElementToCart(product);
+  };
+
   // function to add to cart
   return (
     <div className="h-[350px] md:h-[380px] lg:h-[500px] w-[180px] sm:w-[220px] md:w-[180px] lg:w-[250px] xl:w-[300px] border rounded-lg shadow-lg flex flex-col items-center">
@@ -20,7 +28,7 @@ function ProductCard({ product }: Props) {
         />
       </div>
       {/* info product and add to cart */}
-      <div className="w-[80%] px-2">
+      <div className="w-[80%] px-2 text-center">
         <h3 className="text-md font-semibold mt-5 truncate">{product.title}</h3>
       </div>
       <p className="text-gray-500 mt-5">${product.price}</p>
@@ -35,6 +43,7 @@ function ProductCard({ product }: Props) {
         variant="outlined"
         endIcon={<ShoppingCartIcon />}
         color="success"
+        onClick={() => addToCartHandler(product)}
       >
         Add to cart
       </Button>

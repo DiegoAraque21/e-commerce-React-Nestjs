@@ -8,7 +8,7 @@ function TopBar() {
       <Link href="/">
         <h1 className="pl-10 text-2xl font-bold">Diego's Shop</h1>
       </Link>
-      <Link href="/cart" className="ml-auto mr-[20px]">
+      <Link href="/cart/cart" className="ml-auto mr-[20px]">
         <ShoppingCartIcon />
       </Link>
     </div>

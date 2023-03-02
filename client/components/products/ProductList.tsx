@@ -12,8 +12,7 @@ function ProductList() {
   // products state
   const [products, setProducts] = useState<Product[] | null>(null);
   // cart
-  const { cart } = useCartContext();
-
+  const { state } = useCartContext();
   // hight to low function sorting
   const lowToHighHandler = () => {
     // sort with the in-built javascript sort method.
