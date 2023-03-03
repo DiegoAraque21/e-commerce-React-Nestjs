@@ -4,15 +4,12 @@ import ProductCard from './ProductCard';
 import { Product } from '../../types/product';
 import CircularProgress from '@mui/material/CircularProgress';
 import Filters from '../Filters';
-import { useCartContext } from '@/hooks/useCartContext';
 
 function ProductList() {
   const [error, setError] = useState(false);
   const [loading, setIsLoading] = useState(false);
   // products state
   const [products, setProducts] = useState<Product[] | null>(null);
-  // cart
-  const { state } = useCartContext();
   // hight to low function sorting
   const lowToHighHandler = () => {
     // sort with the in-built javascript sort method.

@@ -1,3 +1,4 @@
+import { Product } from '@/types/product';
 import { Cart } from '../types/cart';
 import { createContext, useReducer } from 'react';
 
@@ -9,7 +10,7 @@ interface Props {
 
 interface Action {
   type: string;
-  payload: any;
+  payload: Product;
 }
 
 // initial state for the useReducer hook
@@ -17,8 +18,13 @@ const initialState: Cart = {
   cart: [],
 };
 
+interface CartContext {
+  state: Cart;
+  dispatch: React.Dispatch<Action>;
+}
+
 // create the CartContext
-export const CartContext = createContext({} as any);
+export const CartContext = createContext({} as CartContext);
 
 // create the reducer that the useReducer hook will take
 export const CartReducer = (state: Cart, action: Action) => {

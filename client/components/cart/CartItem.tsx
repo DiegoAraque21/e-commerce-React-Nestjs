@@ -35,7 +35,7 @@ function CartItem({ item }: Props) {
         className="w-20 h-20 object-contain"
       />
       <p className="text-lg font-bold ml-5">
-        ${item.product.price * item.quantity}
+        ${(item.product.price * item.quantity).toFixed(2)}
       </p>
       <div>
         <button
